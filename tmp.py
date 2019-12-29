@@ -2,6 +2,7 @@ import requests, json, time, random
 
 feature_text = '''
 大家好！我是你的聊天机器人酸菜鱼。
+ppp
 
 我有问必答，有人会问我“今天深圳天气怎么样？”，也有人问我“你喜欢我吗？”
 快来问我问题呀，欢迎来撩！
