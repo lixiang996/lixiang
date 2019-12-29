@@ -1,7 +1,5 @@
 非官方法规
-<<<<<<< HEAD
-=======
 222222
 qwwqwqwqwq
->>>>>>> origin/hahah
+
 
