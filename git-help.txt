@@ -1,0 +1,47 @@
+Git管理的文件分为：工作区，版本库，版本库又分为暂存区stage和暂存区分支master(仓库)
+git add把文件从工作区>>>>暂存区，git commit把文件从暂存区>>>>仓库，
+git clone
+#分支 开发一个新feature，最好新建一个分支
+git branch -a 查看本地分支和远程分支
+git branch name   创建分支
+git switch name 切换分支 git checkout name
+git switch -c lixiang 创建+切换分支 git checkout -b lixiang
+git push origin lixiang 将lixiang分支推送到远程
+git branch --set-upstream-to=origin/lixiang 将本地分支lixiang关联到远程分支lixiang
+git branch -vv 查看本地分支和远程分支的映射关系
+git merge name 合并某分支到当前分支  切换到master分支上，把feature分支合并到master分支上
+git merge --no-ff -m "merge with no-ff" name   请注意--no-ff参数，表示禁用Fast forward 用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并
+git log --graph --pretty=oneline --abbrev-commit  查看分支合并图 
+git branch -d name 删除分支
+git push origin :kk  删除远程分支 git push origin  -d name
+git branch -D name 如果要丢弃一个没有被合并过的分支 -D
+git branch --set-upstream-to=origin/dev dev  如果git pull提示no tracking information。则说明本地分支和远程分支的链接关系没有创建  指定本地dev分支与远程origin/dev分支的链接
+
+git remote -v 要查看远程库 显示更详细的信息 上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址
+
+git diff filename 比较暂存区和工作区
+git diff --cached filename  查看仓库和暂存区差异
+git diff HEAD filename 查看仓库和工作区的差异
+
+git add的反向命令 git restore filename 或者 git checkout -- filename 撤销工作区修改，即把暂存区最新版本转移到工作区
+git commit的反向命令git reset HEAD filename，就是把仓库最新版本转移到暂存区
+git checkout HEAD filename  就是把仓库最新版本转移到工作区
+
+git log 可以查看提交历史  
+git reset --hard commit_id 回退到指定版本  会删除之后的版本
+git revert -n commit_id 反做并使用git commit -m "版本名”提交  保留之后的版本，并新增一个版本
+git reflog 查看命令历D=
+
+git init
+git add README.md                 git add -A 保存所有的修改
+git commit -m "first commit"
+git remote add origin https://github.com/lixiang996/lixiang.git
+git push -u origin master
+我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
+以后即可直接用git push 代替git push origin master 远程库的名字就是origin，这是Git默认的叫法，origin这个名字一看就知道是远程库
+
+git stash save "说明"  临时暂存，可跨分支
+git stash list
+git stash pop  弹栈命令，等于apply+drop 即将最上面的栈元素存储的内容用于当前工作空间，又将最上面的栈元素删除
+git stash apply stash@{0}
+git stash drop stash@{0}
