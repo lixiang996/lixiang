@@ -36,7 +36,7 @@ git init
 git add README.md                 git add -A 保存所有的修改
 git commit -m "first commit"
 git remote add origin https://github.com/lixiang996/lixiang.git
-git push -u origin master    加-f参数强制push
+git push -u origin master
 我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
 以后即可直接用git push 代替git push origin master 远程库的名字就是origin，这是Git默认的叫法，origin这个名字一看就知道是远程库
 
