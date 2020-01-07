@@ -41,13 +41,13 @@ def create():
     return
 
 
-hint = '''funtion:
-  create new file
-  delete null file
-  delete by size
-please input number:'''
-
-
+hint = '''
+funtion:
+create new file
+delete null file
+delete by size
+please input number:
+'''
 while True:
     option = raw_input(hint)  #获取IO输入的值
     if cmp(option,'1') == 0:
